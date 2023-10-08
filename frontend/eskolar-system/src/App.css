@@ -38,17 +38,431 @@
 }
 
 body{
-  background-color: lightblue;
+  background-color: #FFFFFF;
 }
 
-.registercontainer{
+.registercontainer {
   display: flex;
   flex-direction: column;
-  align-items: center ;
+  align-items: center;
+  justify-content: center;
 }
-.registercontainer input{
-  margin-top: 20px;
-  width: 50%;
+
+.input-row2 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-row2 input {
+  width: 320px; /* Each input takes up 48% of the width with a small gap in between */
+  padding: 15px 15px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: #D9D9D9;
+  border: none;
+  outline: none;
+  font-family: 'Lexend';
+  font-size: 16px;
+  box-shadow: 5px 12px 15px -3px rgba(0,0,0,0.1);
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cancel-button a {
+  text-decoration: none;
+  color: #FEBC4A;
+}
+
+.cancel-button {
+  width: 30%;
+  padding: 15px 20px;
+  border: 1px solid #FEBC4A;
+  font-family: 'Lexend';
+  margin-right: 10px; /* Add some margin between the buttons */
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 5px 12px 15px -3px rgba(0,0,0,0.1);
+}
+
+.register-button{
+  width: 30%;
+  padding: 15px 20px;
+  border: none;
+  font-family: 'Lexend';
+  margin-right: 10px; /* Add some margin between the buttons */
+  background-color: #FEBC4A;
+  border-radius: 20px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 5px 12px 15px -3px rgba(0,0,0,0.1);
+}
+
+.titlecontainer{
+  margin-left: 30px;
+}
+
+.titlecontainer h1{
+  font-size: 30px;
+  font-family: 'Lexend';
+  font-weight: bold;
+  color: #FEBC4A;
+  letter-spacing: 0.5px;
+}
+
+.signup{
+  text-align: center;
+  font-family: 'Lexend';
+  font-size: 40px;
+  font-weight: bold;
+  color: #FEBC4A;
+  
+}
+
+.logincontainer{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('../src/image/bg.jpg');
+  background-size: cover;
+  position: relative; /* Add this line */
+}
+
+.logincontainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.50); /* Adjust the color and opacity here */
+
+}
+
+.signincontainer{
+  width: 80%;
+  display: flex;
+  background-color: white;
+  box-shadow: 5px 12px 15px -3px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.leftcontainer{
+  width: 40%;
+  text-align: left;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  
+}
+.leftcontainer h1{
+  font-size: 40px;
+
+}
+.leftcontainer p{
+  font-weight:100;
+  font-size: 18px;
+}
+.leftcontainer a{
+  color: #1410A2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.leftcontainer input{
+  width: 300px;
+  background-color: #D9D9D9;
+  border: none;
   padding: 10px 15px;
+  margin-top: 5px;
+  font-size: 16px;
+  box-shadow: 5px 8px 15px -3px rgba(0,0,0,0.1);
+  outline: none;
+}
+.leftcontainer button{
+  width: 50%;
+  padding: 15px 20px;
+  border: none;
+  font-family: 'Lexend';
+  margin-right: 10px; /* Add some margin between the buttons */
+  background-color: #FEBC4A;
+  border-radius: 20px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 5px 12px 15px -3px rgba(0,0,0,0.1);
+  margin-top: 50px;
+}
+
+.leftcontainer label{
+  font-size: 20px;
+}
+
+.leftcontainer .forgotpass{
+  align-self: flex-start; /* Align the link to the left */
+  color: #1410A2;
+  text-decoration: none;
+  margin-top: 10px; /* Add some space between the input and the link */
+
+}
+.rightcontainer{
+  width: 60%;
+  background-image: url('/src/image/eskolarbglogin2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  
+}
+
+.rightcontainer h1{
+  color: white;
+  z-index: 5;
+  font-size: 50px;
+  font-weight: 200;
+}
+.rightcontainer h2{
+  z-index: 15;
+  font-size: 50px;
+  font-family: 'Lexend';
+  font-weight: bold;
+  color: #FEBC4A;
+  letter-spacing: 0.5px;
+}
+
+.rightcontainer h3{
+  color: white;
+  z-index: 5;
+  font-size: 25px;
+  letter-spacing: 15px;
+  font-weight: 100;
+}
+
+.rightcontainer h1,
+.rightcontainer h2,
+.rightcontainer h3 {
+  margin: 5px 0; /* Reduce margin-top and margin-bottom */
+  padding: 5px 0; /* Reduce padding-top and padding-bottom */
+}
+
+.rightcontainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 16, 162, 0.34); /* Adjust the color and opacity as needed */
+}
+*{
+  font-family: 'Lexend';
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  max-width: 400px;
+}
+
+.form-group {
+  margin: 10px 0; /* Add spacing between form groups */
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.error-message{
+  color: red;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+.modal-open {
+  display: block;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #e2e8f0;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 80%; /* Adjust the width as needed */
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Form Styles (you can adjust as needed) */
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.input-col {
+  flex: 1;
+  margin-right: 50px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  width: 80%;
+  padding: 12px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Lexend';
+  font-size: 15px;
+}
+
+select{
+  width: 80%;
+  border: none;
+  padding: 10px;
+  outline: none;
+  font-family: 'Lato';
+  font-size: 16px;
+}
+
+.main-content{
+  margin-left: 200px;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  height: 100vh;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 50px;
+  font-family: "Lexend";
+  
+}
+
+table {
+  width: 95%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #FFFFFF;
+  font-family: 'Inder';
+
+}
+.table-container {
+  margin: 0 auto; /* This centers the table horizontally */
+}
+/* Style for table header */
+thead {
+  background-color: #FEBC4A;
+  color: black;
+  text-align: center;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+/* Style for table row hover effect */
+tbody tr:hover {
+  background-color: #ddd;
+}
+
+/* Style for table actions buttons */
+td button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 5px;
+}
+
+/* Style for table actions buttons icons */
+td button svg {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Add some spacing to the buttons */
+td button + button {
+  margin-left: 5px;
+}
+
+.button-container2 {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 50px;
+  font-family: "Lexend";
+}
+
+.addbutton {
+  background-color: #FEBC4A;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 150px;
+  font-family: 'Lexend';
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.center-button{
+  padding: 20px;
+  border: none;
+  box-shadow: 19px 23px 22px 0px rgba(0,0,0,0.1); 
+  background-color: #FEBC4A;
+  border-radius: 20px;
+  width: 150px;
+  text-align: center;
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
 
 }

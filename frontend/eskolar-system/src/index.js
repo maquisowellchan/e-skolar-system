@@ -6,6 +6,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
+import Form from './components/Form/Form';
+import Dashboard from './components/Dashboard/Dashboard';
+import AdminSignUp from './components/AdminSignUp/AdminSignUp';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +18,18 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />
+  },
+  {
+    path: "/form",
+    element: <Form />
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />
+  },
+  {
+    path: "/adminsignup",
+    element: <AdminSignUp />
   },
 ]);
 

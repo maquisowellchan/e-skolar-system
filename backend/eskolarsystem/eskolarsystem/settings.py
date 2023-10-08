@@ -46,13 +46,14 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'eskolarsystem.urls'
@@ -81,8 +82,12 @@ WSGI_APPLICATION = 'eskolarsystem.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'eskolar',  # Replace with your database name
+        'USER': 'root',  # Replace with your MySQL username
+        'PASSWORD': '',  # Replace with your MySQL password
+        'HOST': 'localhost',  # Replace with the database host (usually 'localhost')
+        'PORT': '',  # Leave empty to use the default MySQL port (3306)
     }
 }
 
@@ -132,9 +137,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'wellchanmaquiso47@gmail.com'  # Replace with your email
-EMAIL_HOST_PASSWORD = 'qdxntuouxpefkbgn'  # Replace with your email password
+EMAIL_HOST_PASSWORD = 'yepl dzhz dppp axxo'  # Replace with your email password
 
-CORS_ALLOW_ALL_ORIGINS = False  # Set to False to use CORS_ALLOW_WHITELIST
+CORS_ALLOW_ALL_ORIGINS = True  # Set to False to use CORS_ALLOW_WHITELIST
 CORS_ALLOW_WHITELIST = [
     'http://localhost:3000',  # Add the origin of your React app
     # Add any other allowed origins here
