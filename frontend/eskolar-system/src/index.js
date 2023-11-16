@@ -9,6 +9,13 @@ import SignUp from './components/SignUp/SignUp';
 import Form from './components/Form/Form';
 import Dashboard from './components/Dashboard/Dashboard';
 import AdminSignUp from './components/AdminSignUp/AdminSignUp';
+import AdminDashboard from './components/AdminDashboard/AdminDashboard';
+import AdminManageRoles from './components/AdminManageRoles/AdminManageRoles';
+import AdminManageStudent from './components/AdminManageStudent/AdminManageStudent';
+import UserProfile from './components/UserProfile/UserProfile';
+import ProfileManagement from './components/ProfileManagement/ProfileManagement';
+import Application from './components/Application/Application';
+import Scholarship from './components/Scholarship/Scholarship';
 
 const router = createBrowserRouter([
   {
@@ -28,8 +35,32 @@ const router = createBrowserRouter([
     element: <Dashboard />
   },
   {
+    path: "/application",
+    element: <Application />
+  },
+  {
+    path: "/scholarship",
+    element: <Scholarship />
+  },
+  {
     path: "/adminsignup",
     element: <AdminSignUp />
+  },
+  {
+    path: "/admindashboard",
+    element: <AdminDashboard />
+  },
+  {
+    path: "/adminmanageroles",
+    element: <AdminManageRoles />
+  },
+  {
+    path: "/adminmanagestudent",
+    element: <AdminManageStudent />
+  },
+  {
+    path: "/profile",
+    element: <UserProfile />
   },
 ]);
 

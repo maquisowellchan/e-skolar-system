@@ -3,15 +3,22 @@ import { useState, useEffect } from "react";
 import "../../App.css";
 import axios from "axios";
 import WebFont from 'webfontloader';
+import eskolarLogo from '../../image/eskolar.png';
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
+    student_id: "",
+    course: "",
     first_name: "",
     last_name: "",
     email: "",
+    year_level: "",
     password: "",
+    re_password: "",
   });
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showRePassword, setShowRePassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -30,13 +37,22 @@ export default function SignUp() {
           "X-CSRFToken": csrfToken,
         },
       });
-      console.log(response.data);
+
+      if (response.status === 201) {
+        const responseData = response.data;
+        const token = responseData.token;
+
+        localStorage.setItem('userToken', token);
+
+        // Log the response data to the console (you can remove this line in production)
+        console.log(responseData);
+      }
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        setError("Email already exists."); 
-    } else {
-      console.error(error);
-  }
+        setError("Email already exists.");
+      } else {
+        console.error(error);
+      }
     }
   };
 
@@ -48,56 +64,97 @@ export default function SignUp() {
     });
   }, []);
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleRePasswordVisibility = () => {
+    setShowRePassword(!showRePassword);
+  };
+
   return (
     <div className="signupcontainer">
       <div className="titlecontainer">
-        <h1>e-SKOLAR</h1>
+        <img src={eskolarLogo} alt="Eskolar Logo" className="eskolarlogo2" />
       </div>
       <h1 className="signup">Sign Up</h1>
       <div className="registercontainer">
-      <form onSubmit={handleSubmit}>
-        <div className="input-row2">
-          <input
-            type="text"
-            name="first_name"
-            placeholder="First Name"
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="last_name"
-            placeholder="Last Name"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="input-row2">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        {error && <p className="error-message">{error}</p>}
-    <input type="hidden" name="csrfmiddlewaretoken" value="{% csrf_token %}" />
-    <div className="button-container">
-        <button className="cancel-button"> <a href="/">Cancel</a></button>
-        <button type="submit" className="register-button">Register</button>
-      </div>
-    
-  </form>
-</div>
+        <form onSubmit={handleSubmit}>
+          <div className="input-row2">
+            <input
+              type="text"
+              name="student_id"
+              placeholder="Student ID"
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="text"
+              name="course"
+              placeholder="Course"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="input-row2">
+            <input
+              type="text"
+              name="first_name"
+              placeholder="First Name"
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="text"
+              name="last_name"
+              placeholder="Last Name"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="input-row2">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="text"
+              name="year_level"
+              placeholder="Year Level"
+              onChange={handleChange}
+              style={{ width: '320px'}} 
+              required
+            />
+          </div>
+          <div className="input-row2">
 
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={handleChange}
+              required
+            />
+            
+            <input
+              type="password"
+              name="re_password"
+              placeholder="Re-enter Password"
+              onChange={handleChange}
+              required
+            />          
+          </div>
+          {error && <p className="error-message">{error}</p>}
+          <input type="hidden" name="csrfmiddlewaretoken" value="{% csrf_token %}" />
+          <div className="button-container">
+            <button className="cancel-button" onClick={() => window.location.href = "/"}>Cancel</button>
+            <button type="submit" className="register-button">Register</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

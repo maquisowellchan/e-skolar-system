@@ -1,0 +1,109 @@
+/* LeftNavbarUser.css */
+
+.navbar {
+  width: 200px;
+  height: 100vh;
+  background-color: #EBE0B6;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.navbar-brand {
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.navbar-nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the links horizontally */
+  margin-top: 20px;
+}
+
+.nav-link {
+  padding: 8px 12px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  text-align: center;
+}
+
+/* Active link styles */
+.nav-item.active .nav-link {
+  background-color: #5a6268;
+}
+
+/* Hover effect on links */
+.nav-link:hover {
+  background-color: white;
+  width: 100%;
+}
+
+/* Optional: Add transitions for smoother hover effects */
+.nav-link,
+.navbar-brand {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Optional: Add a box shadow to the navbar for a subtle elevation effect */
+.navbar {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.custom-nav-link {
+  font-size: 20px; /* Adjust the font size to your preference */
+  /* You can also add other styles like color, etc. */
+}
+.left-navbar-container {
+  position: relative;
+  
+}
+
+.top-navbar-user {
+  background-color: #0A1274;
+  color: white;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px; /* Adjust as needed */
+}
+
+.my-account {
+  margin-left: 20px; /* Adjust as needed */
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #0A1274; /* Adjust as needed */
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown-item {
+  color: white;
+}
+
+
+.left-navbar {
+  position: absolute;
+  width: 200px;
+  height: 100vh;
+  z-index: 0; /* Set a higher z-index to make it appear in front of the top navbar */
+}
+
+.nav-link.active {
+  background-color: white; /* Set the background color for the active link */
+  color: #fff; /* Set the text color for the active link */
+}

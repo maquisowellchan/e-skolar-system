@@ -3,8 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../csscomponents/UserDashboard.css'
 import WebFont from 'webfontloader';
 import { useState, useEffect } from "react";
+import '../../csscomponents/UserScholarship.css'
 
-export default function Dashboard(){
+export default function Scholarship(){
 
     useEffect(() => {
         WebFont.load({
@@ -15,11 +16,11 @@ export default function Dashboard(){
       }, []);
     return(
         <>
-        <div className="dashboard-container">
+        <div className="scholarship-container">
             <LeftNavBarUser />
-            <div className="dashboard-content">
-                <h1>Welcome, applicant.name</h1>
-                <h2>FEATURED SCHOLARSHIP</h2>
+            <div className="scholarship-content">
+                <h1>Scholarship</h1>
+            
             </div>
         </div>
         </>

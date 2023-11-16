@@ -1,0 +1,11 @@
+.scholarship-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 200px; 
+    font-family: 'Lexend';
+  }
+
+.scholarship-content h1 {
+    font-size: 36px;
+    font-weight: bold;
+}

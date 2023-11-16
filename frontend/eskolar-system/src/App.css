@@ -50,28 +50,33 @@ body{
 
 .input-row2 {
   display: flex;
-  justify-content: space-between;
   width: 100%;
   margin-bottom: 20px;
 }
 
 .input-row2 input {
-  width: 320px; /* Each input takes up 48% of the width with a small gap in between */
+  flex: 1; /* Use flex property to distribute remaining space equally */
+  width: 100px; /* Set width to 0 to allow flex to distribute space */
+  min-width: 120px; /* Reset min-width to 0 for flexbox */
   padding: 15px 15px;
-  margin-right: 20px;
-  margin-bottom: 20px;
   background-color: #D9D9D9;
   border: none;
   outline: none;
   font-family: 'Lexend';
   font-size: 16px;
-  box-shadow: 5px 12px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: 5px 12px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.input-row2 input:last-child {
+  margin-right: 0;
+  margin-left: 20px;
 }
 
 
 .button-container {
   display: flex;
   justify-content: space-around;
+  text-align: center;
 }
 
 .cancel-button a {
@@ -84,10 +89,9 @@ body{
   padding: 15px 20px;
   border: 1px solid #FEBC4A;
   font-family: 'Lexend';
-  margin-right: 10px; /* Add some margin between the buttons */
+  margin-right: 10px; 
   background-color: #FFFFFF;
   border-radius: 20px;
-  
   font-size: 20px;
   font-weight: bold;
   box-shadow: 5px 12px 15px -3px rgba(0,0,0,0.1);
@@ -181,16 +185,7 @@ body{
   font-weight: bold;
 }
 
-.leftcontainer input{
-  width: 300px;
-  background-color: #D9D9D9;
-  border: none;
-  padding: 10px 15px;
-  margin-top: 5px;
-  font-size: 16px;
-  box-shadow: 5px 8px 15px -3px rgba(0,0,0,0.1);
-  outline: none;
-}
+
 .leftcontainer button{
   width: 50%;
   padding: 15px 20px;
@@ -287,6 +282,17 @@ body{
   
 }
 
+.form-group input {
+  width: 300px;
+  background-color: #D9D9D9;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 5px;
+  font-size: 16px;
+  box-shadow: 5px 8px 15px -3px rgba(0,0,0,0.1);
+  outline: none;
+}
+
 .error-message{
   color: red;
 }
@@ -299,11 +305,21 @@ body{
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  overflow: auto;
+  transition: opacity 0.3s ease; /* Add a fade transition */
 }
-.modal-open {
+
+/* Display the modal when modal-open is applied */
+.modal.modal-open {
   display: block;
+  opacity: 1; /* Fade in */
+}
+
+/* Hide the modal when modal-close is applied */
+.modal.modal-close {
+  display: none;
+  opacity: 0; /* Fade out */
 }
 
 /* Modal Content */
@@ -338,16 +354,19 @@ body{
   margin-right: 50px;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="date"] {
-  width: 80%;
+.registercontainer input[type="text"],
+.registercontainer input[type="number"],
+.registercontainer input[type="date"],
+.registercontainer input[type="email"],
+.registercontainer input[type="password"] {
+  width: 100%;
   padding: 12px;
   margin: 5px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-family: 'Lexend';
   font-size: 15px;
+  margin-left: 20px;
 }
 
 select{
@@ -466,3 +485,111 @@ td button + button {
   cursor: pointer;
 
 }
+
+.left-nav-menu {
+  width: 200px; /* Adjust the width as needed */
+  height: 100%;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  z-index: 1;
+  font-family: 'Lexend';
+  text-align: center;
+}
+
+.left-nav-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 50px; /* Adjust as needed to avoid overlapping content */
+}
+
+.left-nav-menu ul li {
+  padding: 15px 0;
+  text-align: center; /* Center the text horizontally */
+  color: white;
+  cursor: pointer;
+}
+
+.left-nav-menu ul li:hover {
+  background-color: #555; /* Background color on hover */
+}
+
+.menu-label {
+  font-size: 20px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.menu-item.active {
+  background-color: #007bff; /* Change the background color to blue */
+  color: #fff; /* Change the text color to white */
+}
+.menu-item:hover {
+  background-color: #f0f0f0; /* Change the background color on hover */
+}
+
+.center-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.menu-icon {
+  margin-right: 10px; /* Add some spacing between the icon and label */
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit text color from parent element */
+}
+
+.nav-link .menu-icon {
+  margin-right: 10px; /* Adjust the spacing between the icon and text */
+}
+
+.batch-registration {
+  position: absolute;
+  top: 10px; /* Adjust the top position */
+  right: 10px; /* Adjust the right position */
+}
+
+.batch-registration input[type="file"] {
+  display: none;
+}
+
+.batch-registration button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.batch-registration button:hover {
+  background-color: #0056b3;
+}
+
+.roletable-container {
+  margin-left: 300px; /* This centers the table horizontally */
+}
+
+.eskolarlogo{
+  width: 357px;
+  height: 162px;
+}
+.eskolarlogo2{
+  width: 270px;
+  height: 130px;
+}
+

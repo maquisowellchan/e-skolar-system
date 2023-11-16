@@ -7,10 +7,10 @@ import WebFont from 'webfontloader';
 export default function AdminSignUp(){
 
     const [formData, setFormData] = useState({
+        employee_id: "",
         first_name: "",
         last_name: "",
         email: "",
-        role: "",
         password: "",
       });
       const [error, setError] = useState("")
@@ -53,7 +53,6 @@ export default function AdminSignUp(){
 
     return(
         <>
-            <h1>Admin</h1>
 
             <div className="signupcontainer">
       <div className="titlecontainer">
@@ -63,6 +62,13 @@ export default function AdminSignUp(){
       <div className="registercontainer">
       <form onSubmit={handleSubmit}>
         <div className="input-row2">
+        <input
+            type="number"
+            name="employee_id"
+            placeholder="Employee Id"
+            onChange={handleChange}
+            required
+          />
           <input
             type="text"
             name="first_name"
@@ -86,13 +92,6 @@ export default function AdminSignUp(){
             onChange={handleChange}
             required
           />
-          <select name="role" 
-            onChange={handleChange}>
-            <option value="admin">Admin</option>
-            <option value="director">Director</option>
-            <option value="head">Head</option>
-            <option value="staff">Staff</option>
-        </select>
           <input
             type="password"
             name="password"

@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,8 +42,56 @@ INSTALLED_APPS = [
     'rest_framework',
     'eskolar',
     'corsheaders',
+    'rest_framework.authtoken',
+    # 'djoser',
 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('JWT',),
+}
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# DJOSER = {
+#     # 'SERIALIZERS': {
+#     #     'user_create': 'eskolar.serializers.UserCreationForm',  
+#     #     'user': 'eskolar.serializers.UserCreationForm',
+#     # },
+#     # 'EMAIL': {
+#     #     'activation': 'eskolar.utils.CustomActivationEmail',  
+#     # },
+#     'LOGIN_FIELD': 'email',
+#     'USER_CREATE_PASSWORD_RETYPE': True,
+#     'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
+#     'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
+#     'SEND_CONFIRMATION_EMAIL': True,
+#     'SET_USERNAME_RETYPE': True,
+#     'SET_USERNAME_RETYPE': True,
+#     'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
+#     'USERNAME_RESET_CONFIRM_URL': 'email/reset/confirm/{uid}/{token}',
+#     'ACTIVATION_URL': 'activate/{uid}/{token}',
+#     'SEND_ACTIVATION_EMAIL': True,
+#     'SERIALIZERS': {
+#         'user_create': 'eskolar.serializers.UserCreationForm',
+#         'user': 'eskolar.serializers.UserCreationForm',
+#         'user_delete': 'djoser.serializers.UserDeleteForm',
+#     }
+
+
+# }
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -136,8 +186,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'wellchanmaquiso47@gmail.com'  # Replace with your email
-EMAIL_HOST_PASSWORD = 'yepl dzhz dppp axxo'  # Replace with your email password
+EMAIL_HOST_USER = 'eskolar.aso@gmail.com'  # Replace with your email
+EMAIL_HOST_PASSWORD = 'wgji qsit pzen wrig'  # Replace with your email password
 
 CORS_ALLOW_ALL_ORIGINS = True  # Set to False to use CORS_ALLOW_WHITELIST
 CORS_ALLOW_WHITELIST = [
@@ -145,3 +195,4 @@ CORS_ALLOW_WHITELIST = [
     # Add any other allowed origins here
 ]
 
+AUTH_USER_MODEL = 'eskolar.UserRole'

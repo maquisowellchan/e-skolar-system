@@ -1,0 +1,15 @@
+
+.dashboard-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 200px; /* Adjust this value based on the width of the LeftNavBarUser */
+    font-family: 'Lexend';
+  }
+
+.dashboard-content h1 {
+    font-size: 25px;
+}
+.dashboard-content h2 {
+    font-size: 36px;
+    font-weight: bold;
+}
