@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from datetime import timedelta
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'eskolar',
     'corsheaders',
-    'rest_framework.authtoken',
+    'rest_framework_simplejwt',
     # 'djoser',
 
 ]
@@ -56,7 +57,11 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'AUTH_HEADER_TYPES': ('JWT',),
+    "AUTH_HEADER_TYPES": ("Bearer",),
+    "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
+    "USER_ID_FIELD": "id",
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
 }
 
 AUTHENTICATION_BACKENDS = [
@@ -189,10 +194,31 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'eskolar.aso@gmail.com'  # Replace with your email
 EMAIL_HOST_PASSWORD = 'wgji qsit pzen wrig'  # Replace with your email password
 
-CORS_ALLOW_ALL_ORIGINS = True  # Set to False to use CORS_ALLOW_WHITELIST
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    # Add other allowed origins if needed
+]
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True  
+CORS_ALLOW_HEADERS = [
+    'x-csrftoken',  # Add the required header
+    'content-type',
+    'accept',
+    'authorization',
+    'csrfcookie',
+    'sessionid',
+]
 CORS_ALLOW_WHITELIST = [
     'http://localhost:3000',  # Add the origin of your React app
     # Add any other allowed origins here
 ]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']  # Add your React app's origin
+CSRF_COOKIE_SECURE = True 
+CSRF_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_HTTPONLY = False  # Set to False if you need to access the CSRF cookie in JavaScript
 
-AUTH_USER_MODEL = 'eskolar.UserRole'
+AUTH_USER_MODEL = 'eskolar.UserRole'    
+APPEND_SLASH = False
+
+MEDIA_ROOT = BASE_DIR / "media"  
+MEDIA_URL = '/media/'

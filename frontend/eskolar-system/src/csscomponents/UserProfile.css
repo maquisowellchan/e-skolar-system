@@ -1,11 +1,43 @@
 .profile-content {
-    flex-grow: 1;
-    padding: 20px;
-    margin-left: 200px; 
-    font-family: 'Lexend';
-  }
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 200px;
+  font-family: 'Lexend';
+  background-color: #dfdada;
+  width: auto;
+  height: 90vh; 
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.profile-subcontent {
+  scrollbar-width: thin;
+ 
+}
+
+.profile-subcontent::-webkit-scrollbar {
+  width: 12px;
+}
+
+.profile-subcontent::-webkit-scrollbar-track {
+  background-color: #cbd5e0;
+}
+
+.profile-subcontent::-webkit-scrollbar-thumb {
+  background-color: #406263;
+  border-radius: 6px;
+  border: 3px solid #cbd5e0;
+}
+
+.profile-subcontent::-webkit-scrollbar-corner {
+  background-color: #cbd5e0;
+}
+
 
 .profile-content h1 {
     font-size: 36px;
     font-weight: bold;
 }
+

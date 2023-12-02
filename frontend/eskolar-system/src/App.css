@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 .App {
   text-align: center;
 }
@@ -54,6 +58,25 @@ body{
   margin-bottom: 20px;
 }
 
+.select-field {
+  flex: 1;
+  width: 100px;
+  min-width: 120px;
+  padding: 10px;
+  background-color: #D9D9D9;
+  border: none;
+  outline: none;
+  font-family: 'Lexend';
+  font-size: 16px;
+  box-shadow: 5px 12px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-left: 20px;
+}
+
+.select-field option{
+  border: none;
+  outline: none;
+}
 .input-row2 input {
   flex: 1; /* Use flex property to distribute remaining space equally */
   width: 100px; /* Set width to 0 to allow flex to distribute space */
@@ -74,9 +97,13 @@ body{
 
 
 .button-container {
-  display: flex;
-  justify-content: space-around;
   text-align: center;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 50px;
+  font-family: "Lexend";
 }
 
 .cancel-button a {
@@ -89,26 +116,26 @@ body{
   padding: 15px 20px;
   border: 1px solid #FEBC4A;
   font-family: 'Lexend';
-  margin-right: 10px; 
+  margin-right: 10px;
   background-color: #FFFFFF;
   border-radius: 20px;
   font-size: 20px;
   font-weight: bold;
-  box-shadow: 5px 12px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: 5px 12px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-.register-button{
+.register-button {
   width: 30%;
   padding: 15px 20px;
   border: none;
   font-family: 'Lexend';
-  margin-right: 10px; /* Add some margin between the buttons */
+  margin-right: 10px;
   background-color: #FEBC4A;
   border-radius: 20px;
   color: #000000;
   font-size: 20px;
   font-weight: bold;
-  box-shadow: 5px 12px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: 5px 12px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .titlecontainer{
@@ -132,6 +159,55 @@ body{
   
 }
 
+@media screen and (max-width: 768px) {
+  .signupcontainer {
+    padding: 20px; /* Add some padding to the container */
+  }
+
+  .input-row2 {
+    flex-direction: column; /* Stack inputs vertically on smaller screens */
+  }
+
+  .input-row2 input {
+    margin-bottom: 10px; /* Add some space between inputs */
+  }
+
+  .select-field {
+    margin-top: 10px; /* Add some space between select and input */
+  }
+
+  .button-container {
+    justify-content: center; /* Center buttons on smaller screens */
+    margin-right: 0; /* Remove right margin */
+  }
+
+  .cancel-button,
+  .register-button {
+    width: 100%; /* Make buttons full width on smaller screens */
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 10px; /* Add some space between buttons */
+  }
+}
+
+/* Tablet Styles */
+@media screen and (max-width: 1024px) {
+  .input-row2 {
+    flex-direction: row; /* Revert back to horizontal layout for tablets */
+  }
+
+  .select-field {
+    margin-top: 0; /* Reset margin for select */
+    margin-left: 20px; /* Add some space to the left of select */
+  }
+
+  .cancel-button,
+  .register-button {
+    width: 30%; /* Reset width for buttons on tablets */
+    margin-right: 10px; /* Add back some margin between buttons */
+    margin-bottom: 0; /* Reset margin bottom */
+  }
+}
+
 .logincontainer{
   width: 100%;
   display: flex;
@@ -140,17 +216,17 @@ body{
   height: 100vh;
   background-image: url('../src/image/bg.jpg');
   background-size: cover;
-  position: relative; /* Add this line */
+  position: relative; 
 }
 
-.logincontainer::before {
+ .logincontainer::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.50); /* Adjust the color and opacity here */
+  background-color: rgba(0, 0, 0, 0.50);  
 
 }
 
@@ -160,6 +236,7 @@ body{
   background-color: white;
   box-shadow: 5px 12px 15px -3px rgba(0,0,0,0.1);
   position: relative;
+
 }
 
 .leftcontainer{
@@ -169,15 +246,18 @@ body{
   justify-content: center;
   align-items: center;
   padding: 50px;
+
   
 }
 .leftcontainer h1{
   font-size: 40px;
 
+
 }
 .leftcontainer p{
   font-weight:100;
   font-size: 18px;
+
 }
 .leftcontainer a{
   color: #1410A2;
@@ -220,8 +300,10 @@ body{
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+
   
 }
 
@@ -231,28 +313,12 @@ body{
   font-size: 50px;
   font-weight: 200;
 }
-.rightcontainer h2{
-  z-index: 15;
-  font-size: 50px;
-  font-family: 'Lexend';
-  font-weight: bold;
-  color: #FEBC4A;
-  letter-spacing: 0.5px;
-}
 
-.rightcontainer h3{
-  color: white;
-  z-index: 5;
-  font-size: 25px;
-  letter-spacing: 15px;
-  font-weight: 100;
-}
 
-.rightcontainer h1,
-.rightcontainer h2,
-.rightcontainer h3 {
-  margin: 5px 0; /* Reduce margin-top and margin-bottom */
-  padding: 5px 0; /* Reduce padding-top and padding-bottom */
+.eskolarlogo{
+  width: 357px;
+  height: 162px;
+  margin-top: 20px;
 }
 
 .rightcontainer::before {
@@ -291,6 +357,52 @@ body{
   font-size: 16px;
   box-shadow: 5px 8px 15px -3px rgba(0,0,0,0.1);
   outline: none;
+} 
+
+/* Add this at the end of your existing CSS */
+
+@media screen and (max-width: 768px) {
+  .signincontainer {
+    flex-direction: column;
+  }
+
+  .leftcontainer {
+    width: 100%;
+  }
+
+  .rightcontainer {
+    width: 100%;
+    margin-top: 20px;
+    order: -1; /* Move the image above the form on smaller screens */
+  }
+
+  .leftcontainer button {
+    width: 100%; /* Make the login button full-width on smaller screens */
+  }
+
+  .form-group input {
+    width: 100%;
+  }
+
+  .error-dialog {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .leftcontainer h1 {
+    font-size: 30px;
+  }
+
+  .rightcontainer h2 {
+    font-size: 40px;
+  }
+
+  .eskolarlogo {
+    width: 250px;
+    height: 110px;
+  }
 }
 
 .error-message{
@@ -329,7 +441,7 @@ body{
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  max-width: 80%; /* Adjust the width as needed */
+  max-width: 70%; /* Adjust the width as needed */
   border-radius: 8px;
   position: relative;
 }
@@ -358,7 +470,8 @@ body{
 .registercontainer input[type="number"],
 .registercontainer input[type="date"],
 .registercontainer input[type="email"],
-.registercontainer input[type="password"] {
+.registercontainer input[type="password"],
+.registercontainer select {
   width: 100%;
   padding: 12px;
   margin: 5px 0;
@@ -370,20 +483,15 @@ body{
 }
 
 select{
-  width: 80%;
+  width: 100px;
   border: none;
   padding: 10px;
   outline: none;
-  font-family: 'Lato';
+  font-family: 'Lexend';
   font-size: 16px;
 }
 
-.main-content{
-  margin-left: 200px;
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Center vertically */
-  height: 100vh;
-}
+
 
 .button-container {
   text-align: center;
@@ -405,9 +513,9 @@ table {
 
 }
 .table-container {
-  margin: 0 auto; /* This centers the table horizontally */
+  margin: 0 auto;
 }
-/* Style for table header */
+
 thead {
   background-color: #FEBC4A;
   color: black;
@@ -469,21 +577,20 @@ td button + button {
   font-size: 18px;
 }
 
-.center-button{
+.center-button {
   padding: 20px;
   border: none;
-  box-shadow: 19px 23px 22px 0px rgba(0,0,0,0.1); 
+  box-shadow: 19px 23px 22px 0px rgba(0, 0, 0, 0.1);
   background-color: #FEBC4A;
   border-radius: 20px;
   width: 150px;
   text-align: center;
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 17px;
   font-weight: bold;
   cursor: pointer;
-
 }
 
 .left-nav-menu {
@@ -580,9 +687,8 @@ td button + button {
   background-color: #0056b3;
 }
 
-.roletable-container {
-  margin-left: 300px; /* This centers the table horizontally */
-}
+
+
 
 .eskolarlogo{
   width: 357px;
@@ -593,3 +699,6 @@ td button + button {
   height: 130px;
 }
 
+#logo-sidebar {
+  transition: transform 0.3s ease-in-out;
+}

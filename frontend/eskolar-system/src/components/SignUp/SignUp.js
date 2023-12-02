@@ -120,14 +120,20 @@ export default function SignUp() {
               onChange={handleChange}
               required
             />
-            <input
-              type="text"
+            <select
               name="year_level"
-              placeholder="Year Level"
               onChange={handleChange}
-              style={{ width: '320px'}} 
+              className="select-field"
               required
-            />
+            >
+              <option value="" disabled selected>
+                Select Year Level
+              </option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+              <option value="4th Year">4th Year</option>
+            </select>
           </div>
           <div className="input-row2">
 
