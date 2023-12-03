@@ -20,10 +20,10 @@ class UserCreationForm(serializers.ModelSerializer):
                                        user_id=user_id,
                                        course=validated_data['course'],
                                        year_level=validated_data['year_level'],
-                                       role=validated_data['role'],
                                          )
         user.set_password(validated_data['password'])
         user.save()
+        print(validated_data)
         return user
 
 class FormSerializer(serializers.ModelSerializer):

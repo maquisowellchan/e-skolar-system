@@ -76,7 +76,7 @@ class ScholarshipSponsor(models.Model):
     sponsor_name = models.CharField(max_length=50)
     contact_person = models.CharField(max_length=100)
     contact_email = models.EmailField(max_length=50)
-    contact_number = models.IntegerField(null=True)
+    contact_number = models.BigIntegerField(null=True)
 
     def __str__(self):
         return self.contact_email
@@ -146,13 +146,15 @@ class Form(models.Model):
 
     
     formname = models.CharField(max_length=50)
-    effectivitydate = models.DateTimeField()
+    effectivitydate = models.DateField()
     form_status = models.CharField(max_length=8, choices=STATUS_CHOICES)
     fields = models.JSONField(default=list)
     
 
     def __str__(self):
         return self.formname
+
+    
     
 class Application(models.Model):
     dynamic_form = models.ForeignKey(Form, on_delete=models.CASCADE)
